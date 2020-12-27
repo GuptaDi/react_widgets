@@ -1,0 +1,99 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, lightblue, whitesmoke, lightblue);
+}
+
+.container {
+  text-align: center;
+  margin-top: 2rem;
+}
+.balls-container {
+  width: 50vw;
+  height: 50vh;
+  background: rgb(161, 133, 133);
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+.wrapper {
+  width: 100%;
+  animation: bounce 0.9s linear infinite;
+}
+
+@for $i from 1 through 4 {
+  $size: random(50) + px;
+  .circles:nth-child(#{$i}) {
+    animation-duration: random(5) + 2.2 + s;
+    animation-delay: random(5) + 1 + s;
+    width: $size;
+    height: $size;
+    border-radius: 2rem;
+  }
+}
+
+.circles:nth-child(1) {
+  background: #f46036;
+}
+.circles:nth-child(2) {
+  background: #00a6a6;
+}
+
+.circles:nth-child(3) {
+  background: #e5d942;
+}
+.circles:nth-child(4) {
+  background: #2f427a;
+}
+
+.panel {
+  width: 300px;
+  height: 5px;
+  border-radius: 2em;
+  background: rgb(29, 27, 5);
+  margin: auto;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(88%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+/* 
+Section 2
+*/
+
+.random-dots {
+  width: 30vw;
+  height: 50vh;
+  padding: 30px;
+  position: relative; // so the dots with be specific to this container
+  background: linear-gradient(to bottom, rgba(red, 0.2), rgba(yellow, 0.3));
+}
+
+@for $i from 1 through 20 {
+  $dotSize: random(3) + px;
+  $position: random(500) * 1%;
+
+  .dots:nth-child(#{$i}) {
+    width: $dotSize;
+    height: $dotSize;
+    border-radius: 50%;
+    background: mediumblue;
+    position: absolute;
+    top: random(400) - 100 + px;
+    left: random(400) - 100 + px;
+    // transform: translate($position, $position) scale(random(2) + 0.2);
+  }
+}
